@@ -5,6 +5,7 @@ var aREPL = {}; // aggregate REPL
 var year = 2011; // I guess?
 aREPL[year] = {};
 var races = ['WHITE', 'BLACK', 'YELLOW', 'RED', 'BROWN'];
+var mydir = "/_data/fert-british/";
 
 var data;
 // var backgroundGeometries;
@@ -16,8 +17,8 @@ var CountryGeometries;
 var NationGeometries;
 
 d3.queue()
-  .defer(d3.json, "../_data/fert-british/brit-quantize.topojson")
-  .defer(d3.tsv, "../_data/fert-british/NUTSNAMES.tsv")
+  .defer(d3.json, mydir + "brit-quantize.topojson")
+  .defer(d3.tsv, mydir + "NUTSNAMES.tsv")
   .await(function(error, mydata, NUTS) {
     data = mydata;
     NUTS.forEach(function(line) {
@@ -63,7 +64,7 @@ d3.queue()
     function getRates(race) {
       REPL[race] = {};
       aREPL[year][compressedRaces[race]] = {};
-      myqueue.defer(d3.tsv, '../_data/fert-british/REPL/' + race + '.tsv', function(d) {
+      myqueue.defer(d3.tsv, mydir + 'REPL/' + race + '.tsv', function(d) {
         var NUTS3 = localIDtoNUTS[d.id];
         var NUTS2 = NUTS3.slice(0,4);
         var NUTS1 = NUTS2.slice(0,3);

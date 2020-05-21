@@ -1,10 +1,10 @@
 (function() {
 
-
 var REPL = {};
 var aREPL = {};
 var year = 2011; // I guess?
 aREPL[year] = {};
+var mydir = "/_data/fert-australia/";
 
 var races = ['WHITE', 'BLACK', 'YELLOW', 'RED', 'BROWN', 'BRONZE'];
 
@@ -17,7 +17,7 @@ var STEGeometries;
 var NATGeometries;
 
 d3.queue()
-  .defer(d3.json, "../_data/fert-australia/aus-quantize.topojson")
+  .defer(d3.json, mydir + "aus-quantize.topojson")
   .await(function(error, mydata, NUTS) {
     data = mydata;
 
@@ -55,7 +55,7 @@ d3.queue()
     function getRates(race) {
       REPL[race] = {};
       aREPL[year][compressedRaces[race]] = {};
-      myqueue.defer(d3.tsv, '../_data/fert-australia/REPL/' + race + '.tsv', function(d) {
+      myqueue.defer(d3.tsv, mydir + 'REPL/' + race + '.tsv', function(d) {
         var SA3 = d.id;
         var SA4 = d.id.slice(0,3);
         var GCC = SA3toGCC[d.id];

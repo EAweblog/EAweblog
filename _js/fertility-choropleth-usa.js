@@ -6,7 +6,8 @@ var FIPSstateCodes = {'01':'Alabama', '02':'Alaska', '04':'Arizona', '05':'Arkan
 var REPL = {};
 var ACE  = {};
 var races = ['EVERYONE', 'WHITE', 'BLACK', 'RED', 'YELLOW'];
-var years = d3.range(2000,2019).map(y => String(y))
+var years = d3.range(2000,2019).map(y => String(y));
+var mydir = "/_data/fert-USA/"
 
 var data;
 var backgroundGeometries;
@@ -16,8 +17,8 @@ var CBSAGeometries;
 var CSAGeometries;
 var NationGeometry;
 d3.queue()
-  .defer(d3.json, "../_data/fert-USA/USA-quantize.topojson")
-  .defer(d3.csv, "../_data/fert-USA/PSA-delineations.csv")
+  .defer(d3.json, mydir + "USA-quantize.topojson")
+  .defer(d3.csv, mydir + "PSA-delineations.csv")
   .await(function(error, mydata, Delineations) {
     data = mydata;
     var FIPStoCBSA = {};
@@ -88,7 +89,7 @@ d3.queue()
         REPL[year][r] = {};
         ACE[year][r] = {};
       });
-      myqueue.defer(d3.tsv, '../_data/fert-USA/DATA/' + year + '.tsv', function (d) {
+      myqueue.defer(d3.tsv, mydir + 'DATA/' + year + '.tsv', function (d) {
         races.forEach(function(race) {
           r = compressedRaces[race];
           REPL[year][r][d.GEO] = +d[r+'_CRR'];

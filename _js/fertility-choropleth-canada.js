@@ -5,10 +5,11 @@ var races = ['WHITE', 'BLACK', 'YELLOW', 'RED', 'BROWN'];
 var year = 2011; // I guess?
 REPL[year] = {};
 var temp = REPL[year];
+var mydir = "/_data/fert-canada/";
 
 var data;
 d3.queue()
-  .defer(d3.json, "../_data/fert-canada/can-quantize.topojson")
+  .defer(d3.json, mydir + "can-quantize.topojson")
   .await(function(error, mydata) {
     data = mydata;
     function getRates(race) {
@@ -16,7 +17,7 @@ d3.queue()
       var r = race;
       var race = compressedRaces[race];
       REPL[race] = {};
-      myqueue.defer(d3.tsv, '../_data/fert-canada/REPL/' + r + '.tsv', function(d) {
+      myqueue.defer(d3.tsv, mydir + 'REPL/' + r + '.tsv', function(d) {
         if (d.id.length === 5)      REPL[race][d.id.slice(2)] = +d.rate;
         else if (d.id.length === 2) REPL[race][parseInt(d.id)] = +d.rate;
         else if (d.id.length === 3) REPL[race][d.id] = +d.rate;

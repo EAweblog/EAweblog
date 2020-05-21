@@ -4,6 +4,7 @@ var REPL = {};
 var races = ['WHITE', 'BLACK', 'YELLOW', 'RED', 'BROWN'];
 var year = 2013; // I guess?
 REPL[year] = {};
+var mydir = "/_data/fert-nz/";
 
 var data;
 // var backgroundGeometries;
@@ -11,7 +12,7 @@ var REGGeometries;
 var NATGeometries;
 
 d3.queue()
-  .defer(d3.json, "../_data/fert-nz/nz-quantize.topojson")
+  .defer(d3.json, mydir + "nz-quantize.topojson")
   .await(function(error, mydata, NUTS) {
     data = mydata;
 
@@ -45,7 +46,7 @@ d3.queue()
     function getRates(race) {
       var r = compressedRaces[race]
       REPL[year][r] = {};
-      myqueue.defer(d3.tsv, '../_data/fert-nz/REPL/' + race + '.tsv', function(d) {
+      myqueue.defer(d3.tsv, mydir + 'REPL/' + race + '.tsv', function(d) {
         REPL[year][r][d.id] = +d.rate;
       });
     }
