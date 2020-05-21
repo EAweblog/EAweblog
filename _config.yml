@@ -22,8 +22,9 @@ title: Eternal Anglo weblog
 # email: your-email@example.com
 # description: >- # this means to ignore newlines until "baseurl:"
   # I collect and curate interesting and relevant data. Some of it is about anglos.
-baseurl: "EAweblog" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://eaweblog.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+repository: "EAweblog/EAweblog"
 twitter_username: EAweblog
 github_username:  EAweblog
 rss: RSS feed
