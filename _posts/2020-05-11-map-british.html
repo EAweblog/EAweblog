@@ -1,0 +1,28 @@
+---
+layout: post
+title: "Fertility by Race by Region, British Isles"
+permalink: fertility-map-british-isles
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset = 'utf-8'>
+<link rel="stylesheet" type="text/css" href="../_css/choropleth.css">
+</head>
+
+<body>
+{%- include fertility-intro.html -%}
+
+<div id="widget-british">
+  <svg id="choropleth-british" viewBox="0 0 960 600"> </svg>
+</div>
+<div id="tooltip"></div>
+</body>
+
+{%- include d3-includes.html -%}
+<script src="../_js/fertility-choropleth.js"></script>
+<script src="../_js/fertility-choropleth-british.js"></script>
+
+</html>

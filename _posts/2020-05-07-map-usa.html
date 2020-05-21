@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Fertility by Race by Region, United States of America"
+permalink: fertility-map-united-states
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset = 'utf-8'>
+<link rel="stylesheet" type="text/css" href="../_css/choropleth.css">
+</head>
+
+<body>
+{%- include fertility-intro.html -%}
+<p>CBSA = Core-Based statistical area</p>
+<p>PSA = Primary statistical area</p>
+<p>MSA = Metropolitan or Micropolitan statistical area</p>
+<p>CSA = Combined statistical area</p>
+<div id="widget-usa">
+  <svg id="choropleth-usa" viewBox="0 0 1060 500"> </svg>
+</div>
+<div id="tooltip"></div>
+</body>
+
+{%- include d3-includes.html -%}
+<script src="../_js/fertility-choropleth.js"></script>
+<script src="../_js/fertility-choropleth-usa.js"></script>
+
+</html>

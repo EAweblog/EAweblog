@@ -1,0 +1,51 @@
+svg {
+  background: #dfefff;
+}
+
+table {
+  display: block;
+  vertical-align: top;
+  border: 0;
+}
+
+tr {
+  border: solid;
+  border-width: 1px;
+}
+
+button {
+  width: 100px;
+  margin: 5px;
+}
+
+.num-data {
+  text-align: right;
+}
+
+.hoverOutline {
+  stroke: #333333;
+  fill: none;
+  /*pointer-events: none;*/
+}
+
+.division {
+  stroke: #fff;
+}
+
+.background {
+  fill: #d8d8d8;
+  opacity: 1;
+}
+
+#tooltip {
+  position: fixed;
+  z-index: 2
+  width: 130px;
+
+  border: 1px solid black;
+  font-size: 18px;
+  padding: 5px;
+  top: -150px;
+  left: 150px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}

@@ -1,0 +1,78 @@
+---
+layout: page
+title: Fertility Project Appendix
+permalink: /fertility-appendix/
+---
+<body>
+{%- include fertility-directory.html -%}
+
+<h3 id="Computed_Variables">Computed Variables</h3>
+<p>For replicability, data processing scripts for computed variables are hosted on <a href=https://github.com/EAweblog/Fertility-Project-assets style="text-decoration: underline;">github</a>.</p>
+<p>
+<b>NRR</b>: the <a href=https://en.wikipedia.org/wiki/Total_fertility_rate#Net_reproduction_rate style="text-decoration: underline;">net reproduction rate</a> is a measure of fertility alternative to the more commonly reported total fertility rate TFR. Whereas the TFR measures the number of born-alive children a woman is expected to have over a fertile lifetime on average, the NRR measures only the number of <i>surviving daughters</i> a woman is expected to have over a fertile lifetime on average.
+<br>I believe the NRR is more informative than the TFR. Why? Because I am interested in which populations have above-replacement fertility and which populations have below-replacement fertility. The replacement-level TFR (RLTFR) is typically said to be 2.1 but this is not a universal. The RLTFR is dependent on local mortality rates <i>and</i> on the local sex ratio at birth. In contrast, the replacement-level NRR is independent of the local sex ratio at birth. For the purpose of making coherent comparisons between populations with respect to replacement-level fertility, using the NRR sidesteps the possibility of misevaluating a population that has an atypical sex ratio at birth.
+</p>
+<p><b>CRR:</b> the crude reproduction rate approximates the NRR similarly to how the <a href=https://www.stat.fi/meta/kas/hedelmallisyys_en.html style="text-decoration: underline;">crude fertility rate</a> CFR approximates the TFR. In all cases, I compute CRR as the ratio of the size of the youngest cohort of girls to the average size of cohorts of women aged 15-44 (see <a href="#footnote-1" id="link-1">[1]</a>).
+<br>Unlike the NRR, the CRR does not account for mortality rates. In the Anglosphere countries, which all have low mortality rates, CRR &gt 1.03 indicates that above-replacement reproduction is taking place, CRR = 1.03 indicates that at-replacement reproduction is taking place, and CRR &lt 1.03 indicates that below-replacement reproduction is taking place, in general.</p>
+<p><b>ACE</b> is a variable I've defined called annual cohort exchange, which is the difference between the (approximate) number of daughters born in a year and the (approximate) number of women who leave the oldest fertile cohort in a year. The ACE gives an indication of which regions are acting as population sources (positive ACE) and which regions are acting as population sinks (negative ACE).</p>
+
+<h3 id="Racial_Designations">Racial Designations</h3>
+<p>In all cases, and in all cohorts, I have partitioned the "EVERYONE" group into racial groups such that a person of mixed ancestry from racial groups A and B is counted as half of a person from racial group A and half of a person from racial group B. For example, by this partitioning, Barack Obama counts as 1 person in the "EVERYONE" group, and he also counts for 0.5 people in the "WHITE" group and 0.5 people in the "BLACK" group.</p>
+<p>
+The designations for racial groups are as follows:
+<table>
+<tr><th>Group</th><th>Designation</th></tr>
+<tr><td>EVERYONE</td><td>Everyone</td></tr>
+<tr><td>WHITE</td><td>Europeans</td></tr>
+<tr><td>BLACK</td><td>Sub-Saharan Africans</td></tr>
+<tr><td>RED</td><td>Mestizos, North Americans, and South Americans</td></tr>
+<tr><td>YELLOW</td><td>East Asians, Micronesians, and Polynesians</td></tr>
+<tr><td>BROWN</td><td>South Asians, West Asians, and North Africans</td></tr>
+<tr><td>BRONZE</td><td>Aborigines, Australoids, and Melanesians</td></tr>
+</table>
+</p>
+
+<h3>Data Sources for population by age, sex, race, and region:</h3>
+(This section is under construction. Some sources may be outdated.)
+<hr>
+USA:
+<p>The geographies were chosen as the sets of counties constituting the Primary Statistical Areas defined by the Office of Management and Budget. The delineations of PSAs are defined at <a href=https://www.census.gov/programs-surveys/metro-micro.html>census.gov</a></p>
+<p>The population data comes from the Census Bureau's <a href=https://www.census.gov/data/tables/time-series/demo/popest/2010s-counties-detail.html>county characteristics dataset</a> of population by age, sex, race, and Hispanic origin, estimates for 2011.</p>
+
+<hr>
+Canada:
+<p>The geographies were chosen as the relevant Census Metropolitan Areas. The population data comes from the 2011 National Household Survey data tables: Visible Minority (15), Generation Status (4), Age Groups (10) and Sex (3) for the Population in Private Households of Canada, Provinces, Territories, Census Metropolitan Areas and Census Agglomerations.</p>
+<p><a href=https://www.statcan.gc.ca/>statcan.gc.ca</a> -> English -> Census Program -> Census Datasets -> 2011 NHS -> Variable: Visible minority (15)</p>
+
+<hr>
+<p>Ireland and the UK:
+The geographies were chosen as the European Union NUTS regions.</p>
+<p>The population data for Ireland were got from the Central Statistics Office index of interactive tables: People and Society -> Census of Population -> 2011 Census Results -> Profile 7 - Religion, Ethnicity and Irish Travellers -> CD795 Population Usually Resident and Present in the State by Sex, Regional Authority, Age Group, CensusYear and Ethnic or Cultural Background.</p>
+<p>It was assumed that whites and nonwhites gave the "not stated" response to the ethnic background question at equal rates.</p>
+<p>The population data for England and Wales were got from the <a href=https://www.nomisweb.co.uk/>www.nomisweb.co.uk</a> data query tool for table DC2101EW - Ethnic group by sex by age - queried at the level of local authorities composing each Functional Urban Area.</p>
+<p>The population data for Northern Ireland in 2011 were got from <a href=https://www.ninis2.nisra.gov.uk/>www.ninis2.nisra.gov.uk</a>. Search for DC2101NI to find the relevant table.</p>
+<p>The population data for Northern Ireland in 2001 were got from <a href=https://www.nisra.gov.uk/>www.nisra.gov.uk</a> -> Census -> 2001 Census -> Results -> Commissioned Output -> Demography -> Sex and Ethnic Group by Age (Table Ext20050509)</p>
+<p>The population data for Scotland were got from <a href=https://scotlandscensus.gov.uk/>scotlandscensus.gov.uk</a> -> Census Data Explorer -> Standard Outputs -> 2011 -> Ethnicity, Identity, Language and Religion -> DC2101SC Ethnic group by sex by age -> Council Area 2011, and selecting the relevant council areas composing each Functional Urban Area</p>
+
+<hr>
+New Zealand:
+<p>The geographies were chosen as the Regions of New Zealand that contained the relevant city. The population data comes from <a href=http://nzdotstat.stats.govt.nz/wbos/Index.aspx>nzdotstat.stats.govt.nz</a></p>
+<p>The white total was got from the sum of two entities:</p>
+<ol>
+<li>The "European only" group from the dataset: Ethnic group (single & combination) by age and sex, 2001, 2006, and 2013 Censuses</li>
+<li>The number of "New Zealander" responses from the dataset: Ethnic group (total responses) by age group and sex, 2001, 2006, and 2013 Censuses</li></ol>
+
+<p>Estimates for white and nonwhite populations in 2011 were got from linear interpolation between 2006 and 2013.</p>
+
+<hr>
+Australia:
+<p>The geographies were chosen as the sets of Local Government Areas that are at least partially contained in the Greater Capital City Statistical Areas of the relevant city, except for Canberra, for which the encompassing Significant Urban Area + Australian Capital Territory was selected.</p>
+<p>The population data comes from the Expanded Community Profile for each region, table X07f, Ancestry of Dependent children by age. To interpret the data from that table, three assumptions were made: 1) that whites and nonwhites gave the "ancestry not stated" response at equal rates. 2) that 50% of the "Other" responses were nonwhite ethnicities (to minimize the maximum error). And 3) that each single response for a nonwhite ethnicity counted for one nonwhite child (since nonwhites don't often racemix with other kinds of nonwhites and so a mixed child is not likely to have two different nonwhite ancestries).</p>
+<hr>
+<h4>Footnotes</h4>
+<ol>
+<li id="footnote-1"><a href="#link-1">^</a> In all cases, I compute CRR as the ratio of the size of the youngest cohort of girls to the average (mean) size of cohorts of women aged 15-44, or in other words, women in the age range [15,45). However, when the size of the youngest cohort is measured over an age range of length &Delta;t, then women who are currently in the age ranges [15,15+&Delta;t) and [45,45+&Delta;t) will have, on average, spent half of the past &Delta;t being in the relevant age range [15,45). So when computing the average size of cohorts of women aged 15-44, the cohorts of women in the age ranges [15,15+&Delta;t) and [45,45+&Delta;t) are included and weighted by 0.5.
+<br>For example, in the USA County Characteristics dataset, the youngest cohort is girls aged 0-4, or in other words, girls in the age range [0,5), so &Delta;t = 5 years. So cohorts of women in the age ranges [15,20) and [45,50), or in other words, women aged 15-19 and women aged 45-49, are included in the mean and weighted by 0.5, and cohorts of women in the age range [20,45), or in other words, women aged 20-44, are included and weighted by 1.0. If P(a,b) is the population of women in the age range [a,b), then CRR is computed as CRR = P(0,5) / ( ( (P(15,20)+P(45,50))/2 + P(20,45) ) / 6 ).
+<br>In general, CRR is computed as CRR = P(0,&Delta;t) / ( ( (P(15,15+&Delta;t)+P(45,45+&Delta;t))/2 + P(15+&Delta;t,45) ) * (&Delta;t/30) )</li>
+</ol>
+</body>

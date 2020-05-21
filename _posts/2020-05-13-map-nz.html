@@ -1,0 +1,28 @@
+---
+layout: post
+title: "Fertility by Race by Region, New Zealand"
+permalink: fertility-map-new-zealand
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset = 'utf-8'>
+<link rel="stylesheet" type="text/css" href="../_css/choropleth.css">
+</head>
+
+<body>
+{%- include fertility-intro.html -%}
+
+<div id="widget-nz">
+  <svg id="choropleth-nz" viewBox="0 0 960 600"> </svg>
+</div>
+<div id="tooltip"></div>
+</body>
+
+{%- include d3-includes.html -%}
+<script src="../_js/fertility-choropleth.js"></script>
+<script src="../_js/fertility-choropleth-nz.js"></script>
+
+</html>

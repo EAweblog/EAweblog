@@ -1,0 +1,203 @@
+id	name
+UK	United Kingdom
+UKZ	England
+UKC	North East, England
+UKC1	Tees Valley and Durham
+UKC11	Hartlepool and Stockton-on-Tees
+UKC12	South Teesside
+UKC13	Darlington
+UKC14	Durham
+UKC2	Northumberland and Tyne and Wear
+UKC21	Northumberland
+UKC22	Tyneside
+UKC23	Sunderland
+UKD	North West, England
+UKD1	Cumbria
+UKD11	West Cumbria
+UKD12	East Cumbria
+UKD6	Cheshire
+UKD61	Warrington
+UKD62	Cheshire East
+UKD63	Cheshire West and Chester
+UKD3	Greater Manchester
+UKD31	Greater Manchester South
+UKD32	Greater Manchester North
+UKD4	Lancashire
+UKD41	Blackburn with Darwen
+UKD42	Blackpool
+UKD43	Lancashire CC
+UKD7	Merseyside
+UKD71	East Merseyside
+UKD72	Liverpool
+UKD73	Sefton
+UKD74	Wirral
+UKE	Yorkshire and the Humber, England
+UKE1	East Riding and North Lincolnshire
+UKE11	Kingston upon Hull
+UKE12	East Riding of Yorkshire
+UKE13	North and North East Lincolnshire
+UKE2	North Yorkshire
+UKE21	York
+UKE22	North Yorkshire CC
+UKE3	South Yorkshire
+UKE31	Barnsley, Doncaster and Rotherham
+UKE32	Sheffield
+UKE4	West Yorkshire
+UKE41	Bradford
+UKE42	Leeds
+UKE44	Calderdale and Kirklees
+UKE45	Wakefield
+UKF	East Midlands, England
+UKF1	Derbyshire and Nottinghamshire
+UKF11	Derby
+UKF12	East Derbyshire
+UKF13	South and West Derbyshire
+UKF14	Nottingham
+UKF15	North Nottinghamshire
+UKF16	South Nottinghamshire
+UKF2	Leicestershire, Rutland and Northamptonshire
+UKF21	Leicester
+UKF22	Leicestershire CC and Rutland
+UKF24	West Northamptonshire
+UKF25	North Northamptonshire
+UKF3	Lincolnshire
+UKF30	Lincolnshire CC
+UKG	West Midlands, England
+UKG1	Herefordshire, Worcestshire and Warwickshire
+UKG11	Herefordshire
+UKG12	Worcestershire CC
+UKG13	Warwickshire CC
+UKG2	Shropshire and Staffordshire
+UKG21	Telford and Wrekin
+UKG22	Shropshire CC
+UKG23	Stoke-on-Trent
+UKG24	Staffordshire CC
+UKG3	West Midlands
+UKG31	Birmingham
+UKG32	Solihull
+UKG33	Coventry
+UKG36	Dudley
+UKG37	Sandwell
+UKG38	Walsall
+UKG39	Wolverhampton
+UKH	East of England
+UKH1	East Anglia
+UKH11	Peterborough
+UKH12	Cambridgeshire CC
+UKH13	Norfolk
+UKH14	Suffolk
+UKH2	Bedfordshire and Hertfordshire
+UKH21	Luton
+UKH24	Bedford
+UKH25	Central Bedfordshire
+UKH25	Hertfordshire CC
+UKH3	Essex
+UKH31	Southend-on-Sea
+UKH32	Thurrock
+UKH33	Essex CC
+UKI	London, England
+UKI1	Inner London
+UKI11	West Inner London
+UKI12	East Inner London
+UKI2	Outer London
+UKI21	East and North East Outer London
+UKI22	South Outer London
+UKI23	West and North West Outer London
+UKJ	South East, England
+UKJ1	Berkshire, Buckinghamshire, and Oxfordshire
+UKJ11	Berkshire
+UKJ12	Milton Keynes
+UKJ13	Buckinghamshire CC
+UKJ14	Oxfordshire
+UKJ2	Surrey, East and West Sussex
+UKJ21	Brighton and Hove
+UKJ22	East Sussex
+UKJ23	Surrey
+UKJ24	West Sussex CC
+UKJ3	Hampshire and Isle of Wight
+UKJ31	Portsmouth
+UKJ32	Southampton
+UKJ33	Hampshire CC
+UKJ34	Isle of Wight
+UKJ4	Kent
+UKJ41	Medway
+UKJ42	Kent CC
+UKK	South West, England
+UKK1	Gloucestershire, Wiltshire and Bristol/Bath area
+UKK11	Bristol
+UKK12	Bath and North East Somerset, North Somerset and South Gloucestershire
+UKK13	Gloucestershire CC
+UKK14	Swindon
+UKK15	Wiltshire
+UKK2	Dorset and Somerset
+UKK21	Bournemouth and Poole
+UKK22	Dorset CC
+UKK23	Somerset
+UKK3	Cornwall and Isles of Scilly
+UKK30	Cornwall and Isles of Scilly
+UKK4	Devon
+UKK41	Plymouth
+UKK42	Torbay
+UKK43	Devon CC
+UKL	Wales
+UKL1	West Wales and The Valleys
+UKL11	Isle of Anglesey
+UKL12	Gwynedd
+UKL13	Conwy and Denbighshire
+UKL14	South West Wales
+UKL15	Central Valleys
+UKL16	Gwent Valleys
+UKL17	Bridgend and Neath Port Talbot
+UKL18	Swansea
+UKL2	East Wales
+UKL21	Monmouthshire and Newport
+UKL22	Cardiff and Vale of Glamorgan
+UKL23	Flintshire and Wrexham
+UKL24	Powys
+UKM	Scotland
+UKM2	Eastern Scotland
+UKM21	Angus and Dundee
+UKM22	Clackmannanshire and Fife
+UKM23	East Lothian and Midlothian
+UKM24	Scottish Borders
+UKM25	Edinburgh
+UKM26	Falkirk
+UKM27	Perth and Kinross, and Stirling
+UKM28	West Lothian
+UKM3	South Western Scotland
+UKM31	Dunbartonshire
+UKM32	Dumfries and Galloway
+UKM33	Aryshire, Arran and Cumbrae
+UKM34	Glasgow
+UKM35	Inverclyde, East Renfrewshire, and Renfrewshire
+UKM36	North Lanarkshire
+UKM37	South Ayrshire
+UKM38	South Lanarkshire
+UKM5	North Eastern Scotland
+UKM50	Aberdeen and Aberdeenshire
+UKM6	Highlands and Islands
+UKM61	Highland
+UKM62	Moray
+UKM63	Argyll and Bute
+UKM64	Eilean Siar
+UKM65	Orkney Islands
+UKM66	Shetland Islands
+UKN	Northern Ireland
+UKN0	Northern Ireland
+UKN01	Belfast
+UKN02	Outer Belfast
+UKN03	East of Northern Ireland
+UKN04	North of Northern Ireland
+UKN05	West and South of Northern Ireland
+IE	Ireland
+IE0	Ireland
+IE01	Border, Midland and Western Ireland
+IE011	Border Ireland
+IE012	Midland Ireland
+IE013	West Ireland
+IE02	Southern and Eastern Ireland
+IE021	Dublin Region
+IE022	Mid-East Ireland
+IE023	Mid-West Ireland
+IE024	South-East Ireland
+IE025	South-West Ireland

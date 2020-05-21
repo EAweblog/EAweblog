@@ -1,0 +1,23 @@
+---
+---
+
+@import "minima";
+
+.wrapper {
+  max-width: 1280px;
+}
+
+#main {
+  float: left;
+  width: 75%;
+}
+
+#sidebar {
+  float: right;
+  width: 25%;
+}
+
+.sidebar-box{
+  border: 6px;
+  padding-left: 15px
+}
