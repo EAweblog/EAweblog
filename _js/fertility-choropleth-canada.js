@@ -1,10 +1,9 @@
 (function() {
 
-var REPL = {};
-var races = ['WHITE', 'BLACK', 'YELLOW', 'RED', 'BROWN'];
-var year = 2011; // I guess?
-REPL[year] = {};
-var temp = REPL[year];
+var CRR = {};
+var ACE = {};
+var races = ['E', 'W', 'B', 'R', 'Y', 'N'];
+var years = [2001, 2006, 2011, 2016].map(y => String(y))
 var mydir = "/_data/fert-canada/";
 
 var data;
@@ -12,22 +11,33 @@ d3.queue()
   .defer(d3.json, mydir + "can-quantize.topojson")
   .await(function(error, mydata) {
     data = mydata;
-    function getRates(race) {
-      let REPL = temp;
-      var r = race;
-      var race = compressedRaces[race];
-      REPL[race] = {};
-      myqueue.defer(d3.tsv, mydir + 'REPL/' + r + '.tsv', function(d) {
-        if (d.id.length === 5)      REPL[race][d.id.slice(2)] = +d.rate;
-        else if (d.id.length === 2) REPL[race][parseInt(d.id)] = +d.rate;
-        else if (d.id.length === 3) REPL[race][d.id] = +d.rate;
-      } ); // rural data points
+    function getData(year) {
+      CRR[year] = {};
+      ACE[year] = {};
+      races.forEach(function(r) {
+        CRR[year][r] = {};
+        ACE[year][r] = {};
+      });
+      myqueue.defer(d3.tsv, mydir + 'DATA/' + year + '.tsv', function(d) {
+        var g;
+        races.forEach(function(r) {
+          if (d.GEO.length === 5) g = d.GEO.slice(2)
+          else if (d.GEO.length === 2) g = parseInt(d.GEO);
+          else if (d.GEO.length === 3) g = d.GEO;
+          else return;
+          CRR[year][r][g] = +d[r+'_CRR'];
+          ACE[year][r][g] = parseInt(d[r+'_ACE']);
+        });
+      });
     }
+    //var myqueue = d3.queue();
+    //getRates(races[0]);
+    //myqueue.await(draw_svg);
+    //var myqueue = d3.queue();
+    //races.slice(1).forEach(race => getRates(race));
     var myqueue = d3.queue();
-    getRates(races[0]);
-    myqueue.await(draw_svg);
-    var myqueue = d3.queue();
-    races.slice(1).forEach(race => getRates(race));
+    years.forEach(year => getData(year))
+    myqueue.await(draw_svg)
   } );
 
 function draw_svg(error) {
@@ -100,17 +110,15 @@ function draw_svg(error) {
     "Nation": NationSelection
   };
 
-  choro.setInputs(REPL, SelectionNames);
+  choro.setInputs(CRR, SelectionNames, ACE);
 
   var widget = new fertWidget("#widget-canada", choro);
-  widget.currentRace = "WHITE"; // temporary becasue the default is "EVERYONE" which hasn't been defined for Canada yet
-
   var regionButtonData = {
     'CMAs': CMALayer,
     'Provinces': ProvinceLayer,
     'Nation': NationLayer
   };
-  var raceButtonData = races;
+  var raceButtonData = races.map(r => expandedRaces[r])
   widget.populateButtons(regionButtonData, raceButtonData);
 
   widget.displayRegion("Provinces");

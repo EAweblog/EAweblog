@@ -10,6 +10,16 @@ var compressedRaces = {
   "BRONZE":   "Z"
 }
 
+var expandedRaces = {
+  "E": "EVERYONE",
+  "W": "WHITE",
+  "B": "BLACK",
+  "R": "RED",
+  "Y": "YELLOW",
+  "N": "BROWN",
+  "Z": "BRONZE"
+}
+
 var color1 = d3.scaleThreshold()
     .domain([0.73,0.79,0.85,0.91,0.97,1.03,1.09,1.15,1.21,1.27])
     .range(["#A50026", "#D73027", "#F46D43", "#FDAE61", "#FEE08B", "#FFFFBF", "#D9EF8B", "#A6D96A", "#66BD63", "#1A9850", "#006837"]);
@@ -174,7 +184,7 @@ fertWidget.prototype = {
       .sliderBottom()
       .min(d3.min(years))
       .max(d3.max(years))
-      .step(1)
+      .marks(years)
       .width(240)
       .tickFormat(d3.format("")) // Bostock, plox to be removing default commas
       .tickValues(years)

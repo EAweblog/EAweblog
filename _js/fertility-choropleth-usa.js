@@ -3,9 +3,9 @@
 var LSADsuffixes = {'00':'', '03':' City and Borough', '04':' Borough', '05':' Census Area', '06':' County', '07':' District', '10':' Island', '12':' Municipality', '13':' Municipio', '15':' Parish', '20':' barrio', '21':' borough', '22':' CCD', '23':' census subarea', '24':' census subdistrict', '25':' city'};
 var FIPSstateCodes = {'01':'Alabama', '02':'Alaska', '04':'Arizona', '05':'Arkansas', '06':'California', '08':'Colorado', '09':'Connecticut', '10':'Delaware', '11':'District of Columbia', '12':'Florida', '13':'Geogia', '15':'Hawaii', '16':'Idaho', '17':'Illinois', '18':'Indiana', '19':'Iowa', '20':'Kansas', '21':'Kentucky', '22':'Louisiana', '23':'Maine', '24':'Maryland', '25':'Massachusetts', '26':'Michigan', '27':'Minnesota', '28':'Mississippi', '29':'Missouri', '30':'Montana', '31':'Nebraska', '32':'Nevada', '33':'New Hampshire', '34':'New Jersey', '35':'New Mexico', '36':'New York', '37':'North Carolina', '38':'North Dakota', '39':'Ohio', '40':'Oklahoma', '41':'Oregon', '42':'Pennsylvania', '44':'Rhode Island', '45':'South Carolina', '46':'South Dakota', '47':'Tennessee', '48':'Texas', '49':'Utah', '50':'Vermont', '51':'Virginia', '53':'Washington', '54':'West Virginia', '55':'Wisconsin', '56':'Wyoming'};
 
-var REPL = {};
+var CRR = {};
 var ACE  = {};
-var races = ['EVERYONE', 'WHITE', 'BLACK', 'RED', 'YELLOW'];
+var races = ['E', 'W', 'B', 'R', 'Y'];
 var years = d3.range(2000,2019).map(y => String(y));
 var mydir = "/_data/fert-USA/"
 
@@ -82,17 +82,15 @@ d3.queue()
     NationGeometry.geometries[0].properties = {code: '0', name: 'United States of America'};
 
     function getData(year) {
-      REPL[year] = {};
+      CRR[year] = {};
       ACE[year]  = {};
-      races.forEach(function(race) {
-        r = compressedRaces[race];
-        REPL[year][r] = {};
+      races.forEach(function(r) {
+        CRR[year][r] = {};
         ACE[year][r] = {};
       });
       myqueue.defer(d3.tsv, mydir + 'DATA/' + year + '.tsv', function (d) {
-        races.forEach(function(race) {
-          r = compressedRaces[race];
-          REPL[year][r][d.GEO] = +d[r+'_CRR'];
+        races.forEach(function(r) {
+          CRR[year][r][d.GEO] = +d[r+'_CRR'];
           ACE[year][r][d.GEO] = parseInt(d[r+'_ACE']);
         });
       });
@@ -181,7 +179,7 @@ function draw_svg(error) {
     else layer.attr("display", "inline");
   }
 
-  choro.setInputs(REPL, SelectionNames, ACE);
+  choro.setInputs(CRR, SelectionNames, ACE);
   var widget = new fertWidget("#widget-usa", choro);
 
   var regionButtonData = {
@@ -191,7 +189,8 @@ function draw_svg(error) {
     'States': StateLayer,
     'Nation': NationLayer
   };
-  var raceButtonData = races;
+
+  var raceButtonData = races.map(r => expandedRaces[r])
   widget.populateButtons(regionButtonData, raceButtonData);
   d3.selectAll(".tick text").each(function(_,i){
     if(i%3 !== 0) d3.select(this).remove();
