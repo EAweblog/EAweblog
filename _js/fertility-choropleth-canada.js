@@ -36,8 +36,8 @@ d3.queue()
     //var myqueue = d3.queue();
     //races.slice(1).forEach(race => getRates(race));
     var myqueue = d3.queue();
-    years.forEach(year => getData(year))
-    myqueue.await(draw_svg)
+    years.forEach(year => getData(year));
+    myqueue.await(draw_svg);
   } );
 
 function draw_svg(error) {
@@ -118,7 +118,7 @@ function draw_svg(error) {
     'Provinces': ProvinceLayer,
     'Nation': NationLayer
   };
-  var raceButtonData = races.map(r => expandedRaces[r])
+  var raceButtonData = races.map(r => expandedRaces[r]);
   widget.populateButtons(regionButtonData, raceButtonData);
 
   widget.displayRegion("Provinces");

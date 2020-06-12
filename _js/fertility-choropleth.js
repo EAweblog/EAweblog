@@ -185,7 +185,8 @@ fertWidget.prototype = {
       .min(d3.min(years))
       .max(d3.max(years))
       .marks(years)
-      .width(240)
+      .width(300)
+      //.height(0)
       .tickFormat(d3.format("")) // Bostock, plox to be removing default commas
       .tickValues(years)
       .default(d3.max(years))
@@ -196,11 +197,11 @@ fertWidget.prototype = {
       .append('svg')
       .style('background', 'none')
       .attr('overflow', 'visible')
-      //.attr('width', 300)
-      //.attr('height', 100)
-      .attr('viewBox', '0 0 300 80')
+      .attr('height', '90')
+      .attr('width', '100%')
+      .attr('viewBox', '0 0 300 70')
       .append('g')
-      .attr('transform', 'translate(30,30)');
+      .attr('transform', 'translate(0,25)');
 
     gTime.call(sliderTime);
 

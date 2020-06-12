@@ -1,9 +1,9 @@
 (function() {
 
-var REPL = {};
-var races = ['WHITE', 'BLACK', 'YELLOW', 'RED', 'BROWN'];
-var year = 2013; // I guess?
-REPL[year] = {};
+var CRR = {};
+var ACE = {};
+var races = ['E', 'W', 'B', 'R', 'Y', 'N', 'Z'];
+var years = [2006, 2013, 2018];
 var mydir = "/_data/fert-nz/";
 
 var data;
@@ -41,21 +41,25 @@ d3.queue()
       q.properties.Name = q.properties.REGION;
       q.properties.Code = q.properties.REGION;
     });
-    NATGeometries = groupGeometries(REGGeometries, q => 'Total, Regional Council Areas', q => 'New Zealand');
+    NATGeometries = groupGeometries(REGGeometries, q => 'Total - Regional Council Areas', q => 'New Zealand');
 
-    function getRates(race) {
-      var r = compressedRaces[race]
-      REPL[year][r] = {};
-      myqueue.defer(d3.tsv, mydir + 'REPL/' + race + '.tsv', function(d) {
-        REPL[year][r][d.id] = +d.rate;
+    function getData(year) {
+      CRR[year] = {};
+      ACE[year] = {};
+      races.forEach(function(r) {
+        CRR[year][r] = {};
+        ACE[year][r] = {};
+      });
+      myqueue.defer(d3.tsv, mydir + 'DATA/' + year + '.tsv', function(d) {
+        races.forEach(function(r) {
+          CRR[year][r][d.GEO] = +d[r+'_CRR'];
+          ACE[year][r][d.GEO] = parseInt(d[r+'_ACE']);
+        });
       });
     }
     var myqueue = d3.queue();
-    getRates(races[0]);
+    years.forEach(year => getData(year));
     myqueue.await(draw_svg);
-    var myqueue = d3.queue();
-    races.slice(1).forEach(race => getRates(race));
-
   } ) ;
 
 function draw_svg(error) {
@@ -93,12 +97,10 @@ function draw_svg(error) {
     selection.attr("class", "division")
   });
 
-  choro.setInputs(REPL, SelectionNames);
+  choro.setInputs(CRR, SelectionNames, ACE);
 
   var widget = new fertWidget('#widget-nz', choro);
-  widget.currentRace = "WHITE"; // temporary becasue the default is "EVERYONE" which hasn't been defined for New Zealand yet
-
-  var raceButtonData = races;
+  var raceButtonData = races.map(r => expandedRaces[r]);
   widget.populateButtons(regionButtonData, raceButtonData);
   widget.displayRegion("Region");
 
