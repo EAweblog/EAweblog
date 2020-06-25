@@ -6,7 +6,7 @@ var FIPSstateCodes = {'01':'Alabama', '02':'Alaska', '04':'Arizona', '05':'Arkan
 var CRR = {};
 var ACE  = {};
 var races = ['E', 'W', 'B', 'R', 'Y'];
-var years = d3.range(2000,2019).map(y => String(y));
+var years = d3.range(2000,2020).map(y => String(y));
 var mydir = "/_data/fert-USA/"
 
 var data;
